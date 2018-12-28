@@ -257,7 +257,7 @@ client.on('message', message => {
         })
         
         r.then((collected)=> {
-            message.channel.send(`${collected.first().author{لقد قمت بتفكيك كلمة في وقت مناسب`);
+            message.channel.send(`${collected.first().author}لقد قمت بتفكيك كلمة في وقت مناسب`);
         })
         })
     }
@@ -508,7 +508,7 @@ client.on('message', message => {
         })
         
         r.then((collected)=> {
-            message.channel.send(`${collected.first().author{احسن لقد كتبت الموجي صحيح في وقت مناسب`);
+            message.channel.send(`${collected.first().author}احسن لقد كتبت الموجي صحيح في وقت مناسب`);
         })
         })
     }
