@@ -2,9 +2,12 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "$"
 client.on('ready', () => {
+	
     console.log('I am ready!');
+	client.user.setGame(`$help | FoxGames 💙✨`, 'https://www.twtich.tv/nothing')
 });
- 
+
+
 client.on('message', message => {
     if (message.content === 'ping') {
         message.reply('pong');
