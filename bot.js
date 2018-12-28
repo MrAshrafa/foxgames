@@ -160,7 +160,7 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-    if (message.content == "$عواصم" , "aosem") {
+    if (message.content == "$عواصم"){
         var x = ["ما عاصمة **المغرب**",
     "ما عاصمة **افغانستان**",
     "ما عاصمة **الجزائر **",
