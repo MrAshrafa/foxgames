@@ -445,9 +445,10 @@ client.on("message", message => {
          .setDescription(`**
 [❖═════ FoxGames ═══════❖]
 برفكس = $ 
-عدد العاب = 12
+عدد العاب = 14
 By = Fox Team
 [❖═════ FoxGames ═══════❖]
+
 $فكك
 
 $اسرع
@@ -471,6 +472,11 @@ $اموجي
 $حروف
 
 $اعلام
+
+$ارقام
+
+$عكس
+
 [❖═════ FoxGames ═══════❖]
        **  `)
    message.channel.sendEmbed(embed)
@@ -545,7 +551,7 @@ client.on('message', message => {
         
         var x3 = Math.floor(Math.random()*x.length)
         message.channel.send(`  كم عدد حروف نص الاتي :  __**${x[x3]}**__
-لديك 15 ثانية لحل لحتساب حروف`).then(msg1=> {
+لديك 15 ثانية لحتساب حروف`).then(msg1=> {
             var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
                 maxMatches : 1,
                 time : 15000,
@@ -597,11 +603,94 @@ client.on('message', message => {
         })
         
         r.then((collected)=> {
-            message.channel.send(`${collected.first().author} قمت كتابة علم صحيح `);
+            message.channel.send(`${collected.first().author} قمت بكتابة علم صحيح `);
         })
         })
     }
 })
+
+client.on('message', message => {
+    if (message.content == "$ارقام") {
+        var x = ["8373672",
+"837262",
+"29922",
+"919263",
+"923747",
+"0174628",
+"817366",
+"8882635",
+];
+        var x2 = ['8373672',
+        "837262",
+        "29922",
+        "919263",
+        "923747",
+        "0174628",
+        "817366",
+        "8882635",
+        
+        ];
+        
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(` اكتب رقم الاتي  :  __**${x[x3]}**__
+لديك 15 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 15000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send(`:negative_squared_cross_mark: لم يقم احد بكتابة رقم صحيح __**${x2[x3]}**__`)
+        })
+        
+        r.then((collected)=> {
+            message.channel.send(`${collected.first().author} قمت بكتابة رقم صحيح `);
+        })
+        })
+    }
+})
+
+client.on('message', message => {
+    if (message.content == "$عكس") {
+        var x = ["منظم",
+"ذهبت",
+"زورت",
+"ساعة",
+"فرحان",
+"كتاب",
+"فاشل",
+"ارقام",
+];
+        var x2 = ['مظنم',
+        "تبهذ",
+        "تروز",
+        "ةعاس",
+        "ناحرف",
+        "باتك",
+        "لشاف",
+        "ماقرا",
+        
+        ];
+        
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(` اعكس  :  __**${x[x3]}**__
+لديك 15 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 15000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send(`:negative_squared_cross_mark: لم يقم احد بكتابة نص صحيح __**${x2[x3]}**__`)
+        })
+        
+        r.then((collected)=> {
+            message.channel.send(`${collected.first().author} قمت بكتابة عكس صحيح `);
+        })
+        })
+    }
+})
+
 
 
 client.login(process.env.BOT_TOKEN);
