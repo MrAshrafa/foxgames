@@ -4,7 +4,7 @@ var prefix = "$"
 client.on('ready', () => {
 	
     console.log('I am ready!');
-	client.user.setGame(`$help | FoxGames 💙✨`, 'https://www.twtich.tv/nothing')
+	client.user.setGame(`$help | FoxTeam 💙✨`, 'https://www.twtich.tv/nothing')
 });
 
 
@@ -438,7 +438,7 @@ client.on('message', message => {
 })
 
 client.on("message", message => {
-    if (message.content === (prefix + "help")) {
+    if (message.content === (prefix + "games" , "العاب")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
          .setThumbnail(message.author.avatarURL)
