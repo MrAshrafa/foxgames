@@ -438,15 +438,16 @@ client.on('message', message => {
 })
 
 client.on("message", message => {
-    if (message.content === (prefix + "games","Games")) {
+    if (message.content === (prefix + "Games")) {
      const embed = new Discord.RichEmbed() 
-         .setColor("#580e6b")
+         .setColor("RANDOM")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`**
 [❖═════ FoxGames ═══════❖]
 برفكس = $ 
 عدد العاب = 14
 By = Fox Team
+ping = ${Date.now() - message.createdTimestamp}ms
 [❖═════ FoxGames ═══════❖]
 
 $فكك
@@ -477,6 +478,11 @@ $ارقام
 
 $عكس
 
+[❖═════ FoxGames ═══════❖]
+اذا وجهتك مشكلة او عندك اقتراح توجه 
+الى سيرفر دعم فني
+$support
+$ping 
 [❖═════ FoxGames ═══════❖]
        **  `)
    message.channel.sendEmbed(embed)
@@ -691,6 +697,41 @@ client.on('message', message => {
     }
 })
 
+client.on('message', message => {
+                                if(!message.channel.guild) return;
+                        if (message.content.startsWith(prefix + "ping")) {
+                            if(!message.channel.guild) return;
+                            var msg = `${Date.now() - message.createdTimestamp}`
+                            var api = `${Math.round(client.ping)}`
+                            if (message.author.bot) return;
+                        let embed = new Discord.RichEmbed()
+                        .setAuthor(message.author.username,message.author.avatarURL)
+                        .setColor('RANDOM')
+                        .addField('**Time Taken:**',msg + " ms :signal_strength: ")
+                        .addField('**WebSocket:**',api + " ms :signal_strength: ")
+         message.channel.send({embed:embed});
+                        }
+ });
 
+client.on('message', message => {
+  if (true) {
+if (message.content === (prefix + "support")) {
+     message.author.send('https://discord.gg/yAkZrt').catch(e => console.log(e.stack));
+    }
+   } 
+  });
+  
+client.on('message', message => {
+     if (message.content === (prefix + "support")) {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#8650a7")
+  .addField("Done" , " تــــم ارســالك في الخــاص")
+
+
+
+  message.channel.sendEmbed(embed);
+    }
+});
 
 client.login(process.env.BOT_TOKEN);
