@@ -770,7 +770,7 @@ client.on('message', message => {
         })
         
         r.then((collected)=> {
-            message.channel.send(`${collected.first().author} احسن جواب صحيح`);
+            message.channel.send(`${collected.first().author} احسنت جواب صحيح`);
         })
         })
     }
