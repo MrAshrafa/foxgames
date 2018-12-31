@@ -478,11 +478,14 @@ $ارقام
 
 $عكس
 
+$لغز
+
 [❖═════ FoxGames ═══════❖]
 اذا وجهتك مشكلة او عندك اقتراح توجه 
 الى سيرفر دعم فني
 $support
 $ping 
+$inv
 [❖═════ FoxGames ═══════❖]
        **  `)
    message.channel.sendEmbed(embed)
@@ -726,5 +729,103 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
+
+client.on('message', message => {
+    if (message.content == "$لغز") {
+        var x = ["شيء بيني وبينك لا عيني رأته ولا عينك ؟ ",
+"ماهوالشيء الموجود في كل شيء ؟",
+"يسير بلارجلين ولايدخل إلى الإذن ماهو؟",
+"ماهو الذي يكون أخضر في الأرض ويكون أسود في السوق ويكون أحمر في البيت؟",
+"ماهو الشيء الذي يكتب ولا يقرأ؟",
+"ماهو الشيء الذي إن غليته جمد؟ ",
+"ماهو الشيئ الذي اسمه على لونه؟",
+"ماهو الشيء الذي يتكلم جميع اللغات؟",
+"ماهوالشيء الذي ينقلنا من مكان إلى آخر دون أن يتحرك؟ ",
+"ماهي التي تمشي بلا رجلين وتبكي بلا عينين؟",
+"ماهي التي تأكل ولا تشبع؟ ",
+];
+        var x2 = ['الهواء',
+        "الاسم",
+        "الصوت",
+        "الشاي",
+        "القلم",
+        "البيض",
+        "البيضة",
+        "الصدى",
+        "الطريق",
+        "السحابة",
+        "النار",
+        ];
+        
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(` حل الغز الاتي  :  __**${x[x3]}**__
+لديك 30 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 30000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send(`:negative_squared_cross_mark: لم يقم احد بحل لغز الاتي وجواب هو  __**${x2[x3]}**__`)
+        })
+        
+        r.then((collected)=> {
+            message.channel.send(`${collected.first().author} احسن جواب صحيح`);
+        })
+        })
+    }
+})
+
+client.on('message', message => {
+     if (message.content === "$inv") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+     
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+  if (true) {
+if (message.content === '$inv') {
+      message.author.send('https://discordapp.com/api/oauth2/authorize?client_id=528205752238735361&permissions=8&scope=bot').catch(e => console.log(e.stack));
+
+    }
+   } 
+  });
+
+client.on('message', message => {
+if(message.content == (prefix + "SS")) {
+         if(!message.author.id === '513080894236655616') return;
+var gimg;
+var gname;
+var gmemb;
+var gbots;
+var groles;
+var servers = client.guilds;
+servers.forEach((g)=>{
+gname = g.name;
+gimg = g.iconURL;
+gmemb = g.members.size;
+gbots = g.members.filter(m=>m.bot).size;
+groles = g.roles.map(r=> {return r.name});
+let serv = new Discord.RichEmbed()
+.setAuthor(gname,gimg)
+.setThumbnail(gimg)
+.addField('Server bots',gbots)
+.addField('Server Member Count',gmemb = g.members.size)
+.setColor('RANDOM')
+message.channel.send(`
+Server Name : **${gname}**
+Server MemberCount : **${gmemb} **
+        `);
+      message.channel.sendEmbed(serv);
+}) 
+}
+});  
 
 client.login(process.env.BOT_TOKEN);
