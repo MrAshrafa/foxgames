@@ -445,7 +445,7 @@ client.on("message", message => {
          .setDescription(`**
 [❖═════ FoxGames ═══════❖]
 برفكس = $ 
-عدد العاب = 14
+عدد العاب = 15
 By = Fox Team
 ping = ${Date.now() - message.createdTimestamp}ms
 [❖═════ FoxGames ═══════❖]
